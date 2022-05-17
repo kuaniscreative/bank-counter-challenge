@@ -1,0 +1,41 @@
+@use "sass:map";
+@use './utils';
+
+$primary: #344194;
+
+$black: #212121;
+$white: #fff;
+
+$gray_0: #141412;
+$gray_1: #292b2c;
+$gray_2: #3d3f42;
+$gray_3: #535659;
+$gray_4: #9f9f9f;
+$gray_5: #dfdfdf;
+
+$semanticColors: (
+  primary: (
+    default: #344194,
+    hover: #4958ba,
+  )
+);
+
+$semanticTextColors: (
+  default: $gray_0,
+  dark: $gray_5,
+  light: $gray_0,
+  disabled: $gray_4,
+  placeholder: $gray_4,
+);
+
+@function get-color($list, $key) {
+  @return map.get($list, $key);
+}
+
+@function get-semantic-text-color($key) {
+  @return map.get($semanticTextColors, $key);
+}
+
+@function get-semantic-color($keys...) {
+  @return utils.map-get-deep($semanticColors, $keys...);
+}
