@@ -1,0 +1,25 @@
+@use '../../../../theme/typography';
+
+.root {
+  display: grid;
+  grid-template-columns: 120px 120px minmax(0, 1fr);
+  padding: 12px 8px;
+
+  &--is-header {
+    .cell {
+      @include typography.weight(semibold);
+    }
+  }
+}
+
+.cell {
+  @include typography.size(body2);
+
+  line-height: 36px;
+  padding: 0 8px;
+
+  &:last-of-type {
+    @include typography.overflow-ellipsis();
+  }
+}
+
