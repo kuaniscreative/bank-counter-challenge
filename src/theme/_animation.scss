@@ -1,0 +1,38 @@
+$standard-curve-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+$deceleration-curve-timing-function: cubic-bezier(0, 0, 0.2, 1);
+$acceleration-curve-timing-function: cubic-bezier(0.4, 0, 1, 1);
+$sharp-curve-timing-function: cubic-bezier(0.4, 0, 0.6, 1);
+
+$shortest-duration: 150ms;
+$shorter-duration: 200ms;
+$short-duration: 250ms;
+$standard-duration: 300ms;
+$complex-duration: 375ms;
+$entering-duration: 225ms;
+$exiting-duration: 195ms;
+
+@function enter($name, $duration: $entering-duration, $delay: 0ms) {
+  @return $name $duration $delay $deceleration-curve-timing-function;
+}
+
+@function exit($name, $duration: $exiting-duration, $delay: 0ms) {
+  @return $name $duration $delay $acceleration-curve-timing-function;
+}
+
+@function sharp($name, $duration: $short-duration, $delay: 0ms) {
+  @return $name $duration $delay $sharp-curve-timing-function;
+}
+
+@function standard($name, $duration: $short-duration, $delay: 0ms) {
+  @return $name $duration $delay $standard-curve-timing-function;
+}
+
+@mixin loadingSpin($speed: 1200ms) {
+  animation: spinKeyframes $speed infinite linear;
+}
+
+@keyframes spinKeyframes {
+  100% {
+    transform: rotate(360deg);
+  }
+}
