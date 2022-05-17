@@ -44,6 +44,10 @@ $weights: (
   font-weight: map.get($weights, $type);
 }
 
+@mixin nowrap {
+  white-space: nowrap;
+}
+
 @mixin overflow-ellipsis {
   overflow: hidden;
   text-overflow: ellipsis;
