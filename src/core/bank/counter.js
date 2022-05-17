@@ -26,7 +26,6 @@ export class Counter {
   }
 
   #process(task) {
-    console.log('counter begin task', task);
     this.processing$.next(task);
 
     setTimeout(() => {
