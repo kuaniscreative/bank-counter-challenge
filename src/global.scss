@@ -1,0 +1,15 @@
+@use "./theme/typography";
+
+html,
+body {
+  height: 100%;
+  overflow: auto;
+}
+
+body {  
+  font-family: typography.$font-family;
+}
+
+#root {
+  height: 100%;
+}
