@@ -1,0 +1,10 @@
+@use '../../../../theme/palette';
+
+.root {
+  width: 100%;
+  min-width: 520px;
+
+  & > :not(:last-child) {
+    border-bottom: 1px solid palette.get-semantic-text-color(placeholder);
+  }
+}
